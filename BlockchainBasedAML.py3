@@ -5,10 +5,6 @@ from uuid import uuid4
 from typing import Optional, Dict, Any, List
 import ecdsa
 
-# ==========================
-# Utilities
-# ==========================
-
 def sha256_hex(data: str) -> str:
     return hashlib.sha256(data.encode("utf-8")).hexdigest()
 
@@ -189,10 +185,6 @@ class DefenseIntelligence:
             return False
         return bank_signature_ok and amount <= self.max_risk_amount
 
-
-# ==========================
-# Orchestrator
-# ==========================
 class CrossBorderSystem:
     def __init__(self, difficulty: int = 4):
         self.blockchain = Blockchain(difficulty=difficulty)
@@ -344,9 +336,6 @@ class CrossBorderSystem:
 
         return {"block_index": block["index"], "block_hash": block_hash, "tx_hashes": block["tx_hashes"]}
 
-# ==========================
-# CLI
-# ==========================
 if __name__ == "__main__":
     system = CrossBorderSystem(difficulty=4)
 
